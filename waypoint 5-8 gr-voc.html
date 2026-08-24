@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PICKEN-ENGLISH AVIATION - Comprehensive Assessment (35 Questions)</title>
+  <style>
+    :root {
+      --burgundy: #6b0f24;
+      --burgundy-dark: #4a0918;
+      --navy: #0f2347;
+      --navy-light: #1e3a6d;
+      --bg: #f4f6f9;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+      --light-gray: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(15, 35, 71, 0.12);
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    .brand-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--burgundy) 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .brand-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .brand-subtitle {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-bar {
+      background: var(--navy-light);
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .timer-badge {
+      background: var(--burgundy);
+      border: 1px solid #991b1b;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .timer-warning {
+      background: #dc2626;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.75; }
+      100% { opacity: 1; }
+    }
+
+    .content-area {
+      padding: 35px;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin: 35px 0 18px 0;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--burgundy);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .question-block {
+      background: var(--light-gray);
+      border-left: 4px solid var(--navy);
+      border-radius: 0 8px 8px 0;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .question-block.writing {
+      border-left-color: var(--burgundy);
+    }
+
+    .question-title {
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .option-label {
+      display: block;
+      padding: 12px 16px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .option-label:hover {
+      border-color: var(--navy-light);
+      background-color: #f0f4f8;
+    }
+
+    .option-label input {
+      margin-right: 12px;
+      accent-color: var(--burgundy);
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 8px;
+      transition: border-color 0.2s;
+    }
+
+    .text-input:focus {
+      outline: none;
+      border-color: var(--burgundy);
+      box-shadow: 0 0 0 3px rgba(107, 15, 36, 0.1);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--burgundy);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.15rem;
+      cursor: pointer;
+      margin-top: 30px;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 12px rgba(107, 15, 36, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-submit:hover {
+      background: var(--burgundy-dark);
+    }
+
+    #result-box {
+      display: none;
+      margin-top: 30px;
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .passed {
+      background: #d1fae5;
+      color: #065f46;
+      border: 2px solid #10b981;
+    }
+
+    .failed {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 2px solid #ef4444;
+    }
+  </style>
+</head>
+<body onload="startTimer()">
+
+  <div class="container">
+    <div class="brand-header">
+      <div class="brand-title">PICKEN-ENGLISH AVIATION</div>
+      <div class="brand-subtitle">Official Aviation English Proficiency & Operations Assessment</div>
+    </div>
+
+    <div class="meta-bar">
+      <span><strong>Examination Module:</strong> Flights 5, 6, 7 & 8</span>
+      <div class="timer-badge" id="timer-display">
+        <span>⏱️ Time Remaining:</span> <span id="time-left">45:00</span>
+      </div>
+    </div>
+
+    <div class="content-area">
+      <form id="quizForm">
+        
+        <!-- PART 1: WH- QUESTIONS (FLIGHT 5) -->
+        <h2 class="section-title">Part 1: WH- Questions & Aviation Context</h2>
+
+        <div class="question-block">
+          <p class="question-title">1. _______ is responsible for approving Flight Plan 402 on Taxiway Alpha?</p>
+          <label class="option-label"><input type="radio" name="q1" value="a"> Where</label>
+          <label class="option-label"><input type="radio" name="q1" value="b"> Who</label>
+          <label class="option-label"><input type="radio" name="q1" value="c"> Why</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">2. _______ is our designated landing gate, ATC?</p>
+          <label class="option-label"><input type="radio" name="q2" value="a"> Where</label>
+          <label class="option-label"><input type="radio" name="q2" value="b"> When</label>
+          <label class="option-label"><input type="radio" name="q2" value="c"> Who</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">3. _______ is the boarding time for Flight 5?</p>
+          <label class="option-label"><input type="radio" name="q3" value="a"> What</label>
+          <label class="option-label"><input type="radio" name="q3" value="b"> Who</label>
+          <label class="option-label"><input type="radio" name="q3" value="c"> When</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">4. _______ is the weather like on approach to London?</p>
+          <label class="option-label"><input type="radio" name="q4" value="a"> What</label>
+          <label class="option-label"><input type="radio" name="q4" value="b"> Why</label>
+          <label class="option-label"><input type="radio" name="q4" value="c"> Where</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">5. _______ are you requesting a hold near the airport?</p>
+          <label class="option-label"><input type="radio" name="q5" value="a"> Who</label>
+          <label class="option-label"><input type="radio" name="q5" value="b"> Why</label>
+          <label class="option-label"><input type="radio" name="q5" value="c"> When</label>
+        </div>
+
+        <!-- PART 2: SIMPLE PRESENT VS PRESENT PROGRESSIVE (FLIGHT 6) -->
+        <h2 class="section-title">Part 2: Simple Present & Present Progressive</h2>
+
+        <div class="question-block">
+          <p class="question-title">6. Standby! The ground technicians _______ the life vests right now.</p>
+          <label class="option-label"><input type="radio" name="q6" value="a"> inspect</label>
+          <label class="option-label"><input type="radio" name="q6" value="b"> inspects</label>
+          <label class="option-label"><input type="radio" name="q6" value="c"> are inspecting</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">7. A flight attendant always _______ safety procedures before takeoff.</p>
+          <label class="option-label"><input type="radio" name="q7" value="a"> demonstrates</label>
+          <label class="option-label"><input type="radio" name="q7" value="b"> is demonstrating</label>
+          <label class="option-label"><input type="radio" name="q7" value="c"> demonstrate</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">8. Look! The dispatchers _______ the emergency exit doors.</p>
+          <label class="option-label"><input type="radio" name="q8" value="a"> close</label>
+          <label class="option-label"><input type="radio" name="q8" value="b"> are closing</label>
+          <label class="option-label"><input type="radio" name="q8" value="c"> closes</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">9. Mechanics _______ the hydraulic system every morning.</p>
+          <label class="option-label"><input type="radio" name="q9" value="a"> check</label>
+          <label class="option-label"><input type="radio" name="q9" value="b"> checks</label>
+          <label class="option-label"><input type="radio" name="q9" value="c"> are checking</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">10. Listen! The purser _______ an announcement in the galley right now.</p>
+          <label class="option-label"><input type="radio" name="q10" value="a"> makes</label>
+          <label class="option-label"><input type="radio" name="q10" value="b"> make</label>
+          <label class="option-label"><input type="radio" name="q10" value="c"> is making</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">11. Passengers usually _______ in their assigned seats during turbulence.</p>
+          <label class="option-label"><input type="radio" name="q11" value="a"> sit</label>
+          <label class="option-label"><input type="radio" name="q11" value="b"> sits</label>
+          <label class="option-label"><input type="radio" name="q11" value="c"> are sitting</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">12. The cabin crew _______ hot coffee in the aisle at the moment.</p>
+          <label class="option-label"><input type="radio" name="q12" value="a"> serves</label>
+          <label class="option-label"><input type="radio" name="q12" value="b"> is serving</label>
+          <label class="option-label"><input type="radio" name="q12" value="c"> serve</label>
+        </div>
+
+        <!-- PART 3: QUANTIFIERS & OBJECT PRONOUNS (FLIGHT 7) -->
+        <h2 class="section-title">Part 3: Quantifiers & Object Pronouns</h2>
+
+        <div class="question-block">
+          <p class="question-title">13. How _______ fuel remaining do you have in the center tank?</p>
+          <label class="option-label"><input type="radio" name="q13" value="a"> many</label>
+          <label class="option-label"><input type="radio" name="q13" value="b"> much</label>
+          <label class="option-label"><input type="radio" name="q13" value="c"> a few</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">14. The baggage handler loads _______ suitcases into the cargo hold.</p>
+          <label class="option-label"><input type="radio" name="q14" value="a"> a little</label>
+          <label class="option-label"><input type="radio" name="q14" value="b"> a few</label>
+          <label class="option-label"><input type="radio" name="q14" value="c"> much</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">15. Are there _______ passengers waiting at Gate 5?</p>
+          <label class="option-label"><input type="radio" name="q15" value="a"> much</label>
+          <label class="option-label"><input type="radio" name="q15" value="b"> any</label>
+          <label class="option-label"><input type="radio" name="q15" value="c"> a little</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">16. The purser needs _______ time to complete the passenger count.</p>
+          <label class="option-label"><input type="radio" name="q16" value="a"> a little</label>
+          <label class="option-label"><input type="radio" name="q16" value="b"> a few</label>
+          <label class="option-label"><input type="radio" name="q16" value="c"> many</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">17. Would you like _______ coffee, Captain?</p>
+          <label class="option-label"><input type="radio" name="q17" value="a"> any</label>
+          <label class="option-label"><input type="radio" name="q17" value="b"> some</label>
+          <label class="option-label"><input type="radio" name="q17" value="c"> many</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">18. The captain is calling _______ (the copilot) on the interphone.</p>
+          <label class="option-label"><input type="radio" name="q18" value="a"> him</label>
+          <label class="option-label"><input type="radio" name="q18" value="b"> her</label>
+          <label class="option-label"><input type="radio" name="q18" value="c"> it</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">19. Please assist _______ (the female passenger) with her luggage.</p>
+          <label class="option-label"><input type="radio" name="q19" value="a"> him</label>
+          <label class="option-label"><input type="radio" name="q19" value="b"> her</label>
+          <label class="option-label"><input type="radio" name="q19" value="c"> me</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">20. We need to refuel _______ (the aircraft) before departure.</p>
+          <label class="option-label"><input type="radio" name="q20" value="a"> them</label>
+          <label class="option-label"><input type="radio" name="q20" value="b"> it</label>
+          <label class="option-label"><input type="radio" name="q20" value="c"> us</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">21. Load the suitcases into the cargo hold immediately. Load _______ now.</p>
+          <label class="option-label"><input type="radio" name="q21" value="a"> it</label>
+          <label class="option-label"><input type="radio" name="q21" value="b"> them</label>
+          <label class="option-label"><input type="radio" name="q21" value="c"> us</label>
+        </div>
+
+        <!-- PART 4: COMPARATIVES & SUPERLATIVES (FLIGHT 8) -->
+        <h2 class="section-title">Part 4: Comparatives, Superlatives & Verbs</h2>
+
+        <div class="question-block">
+          <p class="question-title">22. Commercial jets fly _______ than turboprop aircraft to find smoother air.</p>
+          <label class="option-label"><input type="radio" name="q22" value="a"> highest</label>
+          <label class="option-label"><input type="radio" name="q22" value="b"> higher</label>
+          <label class="option-label"><input type="radio" name="q22" value="c"> more high</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">23. The Airbus A380 is currently the _______ commercial passenger aircraft in service.</p>
+          <label class="option-label"><input type="radio" name="q23" value="a"> heaviest</label>
+          <label class="option-label"><input type="radio" name="q23" value="b"> heavier</label>
+          <label class="option-label"><input type="radio" name="q23" value="c"> heavy</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">24. Direct routes are _______ than flying through severe thunderstorms.</p>
+          <label class="option-label"><input type="radio" name="q24" value="a"> safest</label>
+          <label class="option-label"><input type="radio" name="q24" value="b"> safer</label>
+          <label class="option-label"><input type="radio" name="q24" value="c"> more safe</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">25. First-class seats are _______ than economy seats.</p>
+          <label class="option-label"><input type="radio" name="q25" value="a"> most comfortable</label>
+          <label class="option-label"><input type="radio" name="q25" value="b"> comfortable</label>
+          <label class="option-label"><input type="radio" name="q25" value="c"> more comfortable</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">26. Military jets accelerate _______ than commercial airliners during takeoff.</p>
+          <label class="option-label"><input type="radio" name="q26" value="a"> faster</label>
+          <label class="option-label"><input type="radio" name="q26" value="b"> fastest</label>
+          <label class="option-label"><input type="radio" name="q26" value="c"> more fast</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">27. Hartsfield-Jackson Atlanta is consistently the _______ airport hub worldwide.</p>
+          <label class="option-label"><input type="radio" name="q27" value="a"> busiest</label>
+          <label class="option-label"><input type="radio" name="q27" value="b"> busier</label>
+          <label class="option-label"><input type="radio" name="q27" value="c"> busy</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">28. Due to bad weather at destination, the crew decided to _______ to a safe alternate airport.</p>
+          <label class="option-label"><input type="radio" name="q28" value="a"> climb</label>
+          <label class="option-label"><input type="radio" name="q28" value="b"> divert</label>
+          <label class="option-label"><input type="radio" name="q28" value="c"> exceed</label>
+        </div>
+
+        <div class="question-block">
+          <p class="question-title">29. The aircraft needs to _______ to FL390 to avoid strong turbulence.</p>
+          <label class="option-label"><input type="radio" name="q29" value="a"> climb</label>
+          <label class="option-label"><input type="radio" name="q29" value="b"> descend</label>
+          <label class="option-label"><input type="radio" name="q29" value="c"> load</label>
+        </div>
+
+        <!-- PART 5: SHORT COMPLETION (30-35) -->
+        <h2 class="section-title">Part 5: Direct Completion & Short Answers</h2>
+
+        <div class="question-block writing">
+          <p class="question-title">30. Complete using 'a few' or 'a little':</p>
+          <p>The ground crew needs ____________ more minutes to finish loading the cargo.</p>
+          <input type="text" class="text-input" name="q30" placeholder="Type answer..." autocomplete="off">
+        </div>
+
+        <div class="question-block writing">
+          <p class="question-title">31. Complete with the comparative form of 'good':</p>
+          <p>Diverting to an alternate airport is ____________ than flying into a severe storm.</p>
+          <input type="text" class="text-input" name="q31" placeholder="Type answer..." autocomplete="off">
+        </div>
+
+        <div class="question-block writing">
+          <p class="question-title">32. What is the technical term for the kitchen area aboard an aircraft?</p>
+          <input type="text" class="text-input" name="q32" placeholder="Type answer..." autocomplete="off">
+        </div>
+
+        <div class="question-block writing">
+          <p class="question-title">33. What is the technical term for the overhead storage compartment inside the cabin?</p>
+          <input type="text" class="text-input" name="q33" placeholder="Type answer..." autocomplete="off">
+        </div>
+
+        <div class="question-block writing">
+          <p class="question-title">34. Write the opposite operational verb of 'Climb' or 'Ascend':</p>
+          <input type="text" class="text-input" name="q34" placeholder="Type opposite verb..." autocomplete="off">
+        </div>
+
+        <div class="question-block writing">
+          <p class="question-title">35. Reorder into a correct operational sentence:</p>
+          <p><em>( altitude / climbing / Flight 302 / to / FL320 / is )</em></p>
+          <input type="text" class="text-input" name="q35" placeholder="Type full sentence..." autocomplete="off">
+        </div>
+
+        <button type="button" class="btn-submit" id="submit-btn" onclick="submitForm()">Submit Examination</button>
+      </form>
+
+      <div id="result-box"></div>
+    </div>
+  </div>
+
+  <script>
+    // --- TIMER (45 MINUTES) ---
+    var totalTimeSeconds = 45 * 60;
+    var timerInterval = null;
+
+    function startTimer() {
+      timerInterval = setInterval(function() {
+        totalTimeSeconds--;
+        var minutes = Math.floor(totalTimeSeconds / 60);
+        var seconds = totalTimeSeconds % 60;
+
+        document.getElementById("time-left").innerText = 
+          (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+        if (totalTimeSeconds <= 300) {
+          document.getElementById("timer-display").classList.add("timer-warning");
+        }
+
+        if (totalTimeSeconds <= 0) {
+          clearInterval(timerInterval);
+          alert("⏰ Time has expired! Your exam will now be automatically evaluated.");
+          submitForm();
+        }
+      }, 1000);
+    }
+
+    // --- AUTOMATED EVALUATION (35 QUESTIONS) ---
+    function submitForm() {
+      clearInterval(timerInterval);
+
+      var score = 0;
+      var totalQuestions = 35;
+      var form = document.forms["quizForm"];
+
+      // Part 1
+      if (form["q1"].value === "b") score++;
+      if (form["q2"].value === "a") score++;
+      if (form["q3"].value === "c") score++;
+      if (form["q4"].value === "a") score++;
+      if (form["q5"].value === "b") score++;
+
+      // Part 2
+      if (form["q6"].value === "c") score++;
+      if (form["q7"].value === "a") score++;
+      if (form["q8"].value === "b") score++;
+      if (form["q9"].value === "a") score++;
+      if (form["q10"].value === "c") score++;
+      if (form["q11"].value === "a") score++;
+      if (form["q12"].value === "b") score++;
+
+      // Part 3
+      if (form["q13"].value === "b") score++;
+      if (form["q14"].value === "b") score++;
+      if (form["q15"].value === "b") score++;
+      if (form["q16"].value === "a") score++;
+      if (form["q17"].value === "b") score++;
+      if (form["q18"].value === "a") score++;
+      if (form["q19"].value === "b") score++;
+      if (form["q20"].value === "b") score++;
+      if (form["q21"].value === "b") score++;
+
+      // Part 4
+      if (form["q22"].value === "b") score++;
+      if (form["q23"].value === "a") score++;
+      if (form["q24"].value === "b") score++;
+      if (form["q25"].value === "c") score++;
+      if (form["q26"].value === "a") score++;
+      if (form["q27"].value === "a") score++;
+      if (form["q28"].value === "b") score++;
+      if (form["q29"].value === "a") score++;
+
+      // Part 5 (Short text entries)
+      if (form["q30"].value.trim().toLowerCase() === "a few") score++;
+      if (form["q31"].value.trim().toLowerCase() === "better") score++;
+      
+      var q32_val = form["q32"].value.trim().toLowerCase();
+      if (q32_val === "galley") score++;
+
+      var q33_val = form["q33"].value.trim().toLowerCase();
+      if (q33_val === "overhead bin" || q33_val === "overhead bins" || q33_val === "overhead compartment") score++;
+
+      var q34_val = form["q34"].value.trim().toLowerCase();
+      if (q34_val === "descend" || q34_val === "descent") score++;
+
+      var q35_val = form["q35"].value.trim().toLowerCase().replace(/[.,]/g, '');
+      if (q35_val === "flight 302 is climbing to altitude fl320" || q35_val === "flight 302 is climbing to fl320 altitude") score++;
+
+      var percentage = Math.round((score / totalQuestions) * 100);
+      var status = percentage >= 70 ? "passed" : "failed";
+
+      var resultBox = document.getElementById("result-box");
+      resultBox.style.display = "block";
+      resultBox.className = status;
+      resultBox.innerHTML = "Assessment Submitted!<br>" +
+        "Final Score: " + percentage + "% (" + score + "/" + totalQuestions + " correct)";
+
+      // Disable form fields
+      var inputs = form.querySelectorAll("input, button");
+      inputs.forEach(function(i) { i.disabled = true; });
+    }
+  </script>
+</body>
+</html>
